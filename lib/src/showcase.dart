@@ -244,6 +244,9 @@ class Showcase extends StatefulWidget {
   /// will still provide a callback.
   final VoidCallback? onBarrierClick;
 
+  final double? top;
+  final double? bottom;
+
   const Showcase({
     required this.key,
     required this.description,
@@ -287,7 +290,7 @@ class Showcase extends StatefulWidget {
     this.descriptionPadding,
     this.titleTextDirection,
     this.descriptionTextDirection,
-    this.onBarrierClick,
+    this.onBarrierClick, this.top, this.bottom,
   })  : height = null,
         width = null,
         container = null,
@@ -324,7 +327,7 @@ class Showcase extends StatefulWidget {
     this.onTargetDoubleTap,
     this.disableDefaultTargetGestures = false,
     this.tooltipPosition,
-    this.onBarrierClick,
+    this.onBarrierClick, this.top, this.bottom,
   })  : showArrow = false,
         onToolTipClick = null,
         scaleAnimationDuration = const Duration(milliseconds: 300),
@@ -541,6 +544,8 @@ class _ShowcaseState extends State<Showcase> {
             disableDefaultChildGestures: widget.disableDefaultTargetGestures,
           ),
           ToolTipWidget(
+            top: widget.top,
+            bottom: widget.bottom,
             position: position,
             offset: offset,
             screenSize: screenSize,

@@ -178,9 +178,17 @@ class _MailPageState extends State<MailPage> {
                               Expanded(
                                 child: Row(
                                   children: <Widget>[
-                                    Showcase(
+                                    Showcase.withWidget(
                                       key: _one,
-                                      description: 'Tap to see menu options',
+                                      height: 0,
+                                      width: 0,
+                                      top: 20,
+                                      container: Container(
+                                          color: Colors.white,
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Text('Tap to see menu options'),
+                                          )),
                                       disableDefaultTargetGestures: true,
                                       onBarrierClick: () =>
                                           debugPrint('Barrier clicked'),
@@ -416,6 +424,7 @@ class MailTile extends StatelessWidget {
                     key: showCaseKey!,
                     height: 50,
                     width: 140,
+
                     targetShapeBorder: const CircleBorder(),
                     targetBorderRadius: const BorderRadius.all(
                       Radius.circular(150),
